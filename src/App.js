@@ -2,20 +2,30 @@ import React, { Component } from 'react';
 import AppBarNav from './components/AppBarNav'
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Container from 'material-ui/Container';
- 
+// import Picture from './components/Picture'
 
+import { Provider } from 'react-redux'
+
+import Posts from './components/Posts'
+import PostForm from './components/Postform'
+
+import store from './store'
+ 
 class App extends Component {
   render() {
     return (
-      <div>
-        <MuiThemeProvider>
-          <Container>
+      
+      <Provider store={store}>
+        <div>
+          <MuiThemeProvider>
             <AppBarNav />
-          </Container>
-        </MuiThemeProvider>
-        
-      </div>
+            <getCoffeeShops />
+            <PostForm />
+            <Posts />
+            
+          </MuiThemeProvider>
+        </div>
+      </Provider>
     );
   }
 }
